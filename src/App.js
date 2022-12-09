@@ -14,6 +14,7 @@ const App = (title) => {
     const [searchTerm, setSearch] = useState([])
 
     const searchMovies = async (title) => {
+        if(!title) title = 'Matrix'
         const response = await fetch(`${API_URL}&s=${title}`)
         const data = await response.json()
         setMovies(data.Search)
